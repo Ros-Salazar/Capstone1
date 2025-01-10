@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="/public/assets/css/users_styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="img/341835580_3377258052532133_4186880548703356922_n.jpg" alt="CEO">
+        </div>
+        <div class="header-right">
+            <a href="/public/AdminPage.html">Dashboard</a>
+            <a href="Profile.html" class="logo">
+                <img src="img/prof_pic.svg" alt="Profile">
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Users</h1>
+        <h2>Approved Users</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Created At</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody id="users-table">
+                <!-- Approved user data will be inserted here -->
+            </tbody>
+        </table>
+
+        <h2>Users Pending Approval</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Created At</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody id="pending-users-table">
+                <!-- Pending user data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="edit-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Edit User</h2>
+            <form id="edit-form" onsubmit="saveEdits(event)">
+                <input type="hidden" name="userId" id="userId">
+                <div class="form-group">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" name="firstName" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" name="lastName" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="position">Position:</label>
+                    <select name="position" id="position" required>
+                        <option value="admin">Admin</option>
+                        <option value="manager">Manager</option>
+                        <option value="staff">Staff</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <button type="submit">Save</button>
+                <button type="button" onclick="closePopup()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Access Privileges Modal -->
+    <div id="privileges-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePrivilegesPopup()">&times;</span>
+            <h2>Access Privileges</h2>
+            <form id="privileges-form" onsubmit="savePrivileges(event)">
+                <input type="hidden" name="privilegesUserId" id="privilegesUserId">
+                <input type="hidden" name="position" id="position"> <!-- Add hidden field for position -->
+                <div class="form-group">
+                    <label for="canViewProjects">Can View Projects:</label>
+                    <input type="checkbox" name="canViewProjects" id="canViewProjects">
+                </div>
+                <div class="form-group">
+                    <label for="canEditProjects">Can Edit Projects:</label>
+                    <input type="checkbox" name="canEditProjects" id="canEditProjects">
+                </div>
+                <!-- Add more privileges as needed -->
+                <button type="submit">Save</button>
+                <button type="button" onclick="closePrivilegesPopup()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/public/assets/javascript/users_scripts.js"></script>
+</body>
+</html>

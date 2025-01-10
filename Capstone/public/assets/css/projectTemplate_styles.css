@@ -1,0 +1,567 @@
+/* Reset basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic Styling */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #077d03;
+}
+
+.navbar nav ul {
+  display: flex;
+  gap: 1.5em;
+}
+
+.navbar .login-btn {
+  padding: 0.5em 1.5em;
+  background-color: #077d03;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Project Overview */
+.project-overview {
+  padding: 4em 2em;
+  margin-top: 1%;
+  background-color: #f1f1f1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Group Section */
+.group-section {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.add-group-btn, .add-item-btn, .prevMonth, .nextMonth {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #077d03;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-group-btn:hover, .add-item-btn:hover, .prevMonth:hover, .nextMonth:hover {
+  background-color: #065c02;
+}
+
+/* Dynamic Table Styling */
+.group-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed;
+}
+
+.group-table th {
+  background-color: #065c02;
+  color: white;
+  text-align: left;
+  padding: 10px;
+}
+
+.group-table th.fixed-column {
+  width: 30px; /* Adjust width as needed */
+  text-align: center;
+  position: sticky;
+  right: 0; /* Align to the right side */
+  z-index: 1;
+}
+
+.group-table th.fixed-column .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: auto; /* Ensure it stays aligned to the right */
+  right: -100px; /* Align dropdown menu to the right side */
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  display: none;
+  z-index: 1000;
+  border-radius: 5px; /* Rounded borders */
+}
+.group-table td.fixed-column .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: auto; /* Ensure it stays aligned to the right */
+  right: -80px; /* Align dropdown menu to the right side */
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  display: none;
+  z-index: 1000;
+  border-radius: 5px; /* Rounded borders */
+}
+.group-table th.plus-header {
+  width: 40px; /* Adjust width as needed */
+  text-align: center;
+  position: relative; /* Ensure positioning context for dropdown */
+
+}
+
+.group-table td.fixed-column {
+  width: 30px; /* Match this width with the .fixed-column class */
+  text-align: center; /* Center-align the dots */
+  border-radius: 5px; /* Optional: Rounded borders */
+}
+
+.group-table td.plus-column {
+  width: 40px; /* Adjust width as needed */
+  text-align: center; /* Center-align the plus (+) */
+  border-radius: 5px; /* Rounded borders */
+}
+
+.group-table td {
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.group-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.group-table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.group-table select {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+  padding: 8px;
+  font-size: inherit;
+  appearance: none;
+  cursor: pointer;
+}
+
+.group-table select:hover {
+  background-color: #f9f9f9;
+}
+
+.group-table select:focus {
+  border: 1px solid #077d03;
+  background-color: #f1f1f1;
+}
+
+.settings-btn {
+  padding: 8px;
+  background-color: #0b5ed7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Fixed Option Button Styling */
+.fixed-column {
+  position: sticky;
+  right: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+/* Plus Column Styling */
+.plus-column {
+  position: sticky;
+  right: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+/* Styling for group containers */
+.group-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.group-container .group-card {
+  flex: 1 1 calc(33.33% - 15px);
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -90px; /* Position left of the plus column */
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  display: none;
+  z-index: 1000;
+  border-radius: 5px; /* Rounded borders */
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: black;
+  margin-left: 0px;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Project Header Editable Elements */
+.project-header h1.editable,
+.project-header p.editable {
+  margin-bottom: 0.5em;
+}
+
+.project-header p.editable {
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+  font-size: 1.2em;
+  color: #555;
+  cursor: pointer;
+}
+
+.group-section, .calendar-section {
+  display: none; /* Default state is hidden */
+}
+
+.active-section {
+  display: block; /* This class will be used to show sections */
+}
+
+.project-header h1.editable:hover,
+.project-header p.editable:hover {
+  background-color: #f1faff;
+  border-bottom: 1px dashed #077d03;
+}
+
+.editable {
+  padding: 5px;
+}
+
+.editable:focus {
+  outline: none;
+  border-color: green;
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.main-table-btn,
+.calendar-btn,
+.kanban-btn,
+.cta-btn {
+  padding: 0.8em 1.5em;
+  background-color: #077d03;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.main-table-btn.active,
+.calendar-btn.active,
+.kanban-btn {
+  background-color: #26a828; /* Change to your preferred highlight color */
+  color: #fff; /* Ensure the text is readable */
+}
+
+/* Project Detail Section */
+.project-detail {
+  padding: 2em;
+  text-align: left;
+}
+
+/* Style for the new item columns */
+.item-column {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #f5faff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.item-column h3 {
+  font-size: 1.5em;
+  color: #077d03;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2em;
+  background-color: #f1f1f1;
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Header Template */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: #077d03;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .logo img {
+  height: 60px;
+  border-radius: 30px;
+  width: auto;
+  margin-right: 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header-right a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 0;
+  margin-right: 20px;
+}
+
+.header-right a:hover {
+  text-decoration: underline;
+}
+
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 30px;
+  border-radius: 4px;
+}
+
+/* Remove borders from input fields */
+input[type="text"][placeholder="Enter Value"],
+input[type="email"],
+input[type="date"] {
+  border: none;
+  padding: 8px;
+}
+
+/* Calendar Styling */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-day {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.calendar-day.pinned {
+  background-color: #077d03;
+  color: white;
+}
+
+.calendar-day:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+/* Updated styles for calendar navigation buttons */
+#prevMonth, #nextMonth {
+  padding: 0.8em 1.5em;
+  background-color: #077d03;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#prevMonth:hover, #nextMonth:hover {
+  background-color: #065c02;
+}
+
+/* kanban board styling */
+.kanban-board {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.kanban-column {
+  width: 30%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.kanban-column-header {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.kanban-column-body {
+  min-height: 200px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.kanban-card {
+  background-color: #fff;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+}
+
+.add-card-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;
+}
+
+.add-card-btn:hover {
+  background-color: #218838;
+}
+
+/* Context Menu Styling aka delete option on right click */
+.context-menu {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none;
+  min-width: 150px;
+}
+
+.context-menu-item {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.context-menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Adjust the dropdown button and menu styles */
+.group-table th .dropdown-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    margin: 0;
+}
+
+.group-table th .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 10px; /* Position close to the button */
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    display: none;
+    z-index: 1000;
+    border-radius: 5px; /* Rounded borders */
+}

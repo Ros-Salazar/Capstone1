@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects</title>
+    <link rel="stylesheet" href="/public/assets/css/users_styles.css"> <!-- Using the same stylesheet as Users.html -->
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="img/341835580_3377258052532133_4186880548703356922_n.jpg" alt="CEO">
+        </div>
+        <div class="header-right">
+            <a href="/public/AdminPage.html">Dashboard</a>
+            <a href="Profile.html" class="logo">
+                <img src="img/prof_pic.svg" alt="Profile">
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Projects</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Description</th>
+                    <th>Completion</th>
+                    <th>Created At</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody id="projects-table">
+                <!-- Project data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="edit-popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Edit Project</h2>
+            <form id="edit-form" onsubmit="saveEdits(event)">
+                <!-- Hidden input field for projectId -->
+                <input type="hidden" name="projectId" id="projectId">
+                <div class="form-group">
+                    <label for="projectName">Project Name:</label>
+                    <input type="text" name="projectName" id="projectName" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectLocation">Project Location:</label>
+                    <input type="text" name="projectLocation" id="projectLocation" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Project Description:</label>
+                    <input type="text" name="projectDescription" id="projectDescription" required>
+                </div>
+                <button type="submit">Save</button>
+                <button type="button" onclick="closePopup()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/public/assets/javascript/projects_scripts.js"></script>
+</body>
+</html>
